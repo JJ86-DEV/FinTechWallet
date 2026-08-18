@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    internal class Wallet
+    public class Wallet
     {
         public int Id { get; set; }//Primary key
         public string UserId { get; set; }//Connected to the User entity
