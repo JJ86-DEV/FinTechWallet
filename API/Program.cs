@@ -1,6 +1,7 @@
+using Application.User.Commands.CreateUser;
 using FintechWallet.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-
+using Application.User.Commands.CreateUser;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -9,6 +10,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddMediatR(cfg =>
+             cfg.RegisterServicesFromAssembly(typeof(CreateUserCommand).Assembly));
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
